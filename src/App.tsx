@@ -2,8 +2,8 @@ import { useState } from "react";
 
 function App() {
   return (
-    <div className="App">
-      <h3>hello world</h3>
+    <div className="flex items-center justify-center h-screen">
+      <h1 className="text-3xl font-bold">{"Hello world! portfolio site v2"}</h1>
     </div>
   );
 }
