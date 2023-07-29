@@ -8,11 +8,11 @@ function App() {
       </h1>
       <h1
         onClick={() => {
-          window.open("https://narayann.me");
+          window.open("https://narayann.dev");
         }}
         className="text-3xl font-bold p-3 cursor-pointer hover:text-teal-600"
       >
-        narayann.me
+        narayann.dev
       </h1>
     </div>
   );
