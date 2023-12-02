@@ -9,16 +9,24 @@ function Test() {
   }, [])
   return (
     <div
-      className='flex items-center justify-center w-screen h-screen bg-black'
+      style={
+        {
+          background: "black",
+          height: '100vh',
+          width: '100vw',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
 
+        }
+      }
     >
 
 
 
 
       <motion.div
-
-        className='bg-'
         style={{
           borderRadius: '316px',
           background: 'rgba(134, 95, 198, 0.42)',
@@ -29,11 +37,57 @@ function Test() {
         }}
 
         animate={{
-          scale: [1, 1.5, 2, 1.5, 1],
+          // scale: [1, 1.5, 2, 1.5, 1],
         }}
         transition={{
           repeat: Infinity,
-          duration: 3,
+          duration: 4,
+          ease: 'linear',
+
+
+        }}></motion.div>
+      <motion.div
+        style={{
+
+          borderRadius: '316px',
+          background: 'rgba(95, 191, 198, 0.47)',
+          boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+          filter: 'blur(188.5px)',
+          height: '400px',
+          width: '400px',
+        }}
+
+        animate={{
+          // scale: [1, 1.5, 2, 1.5, 1],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 10,
+          ease: 'linear',
+
+
+        }}></motion.div>
+
+      <motion.div
+        style={{
+          borderRadius: '316px',
+          background: 'rgba(134, 95, 198, 0.42)',
+          boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+          filter: 'blur(188.5px)',
+          position: 'relative',
+          right: "400px",
+          top: "400px",
+
+          height: '400px',
+          width: '400px',
+        }}
+
+        animate={{
+          // scale: [1, 1.5, 2, 1.5, 1],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 4,
           ease: 'linear',
 
 
