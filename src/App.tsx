@@ -2,15 +2,34 @@ import { useState } from "react";
 
 function App() {
   return (
-    <div className="flex flex-col h-screen items-center justify-center ">
-      <h1 className="text-3xl font-bold">
+    <div
+      style={{
+        height: "100vh",
+        width: "100vw",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "#000",
+        fontFamily: "sans-serif",
+        fontWeight: 700
+      }}
+
+    >
+      <h1 >
         🛠️ under development | check out v1 👇
       </h1>
       <h1
         onClick={() => {
           window.open("https://narayann.dev");
         }}
-        className="text-3xl font-bold p-3 cursor-pointer hover:text-teal-600"
+        style={{
+          cursor: "pointer",
+          fontSize: "2rem",
+          color: "#000",
+          fontWeight: 700,
+          textDecoration: "underline"
+        }}
       >
         narayann.dev
       </h1>
