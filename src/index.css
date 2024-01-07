@@ -1,17 +1,20 @@
+:root {
+  --backgroundColor: #010613;
+  --primaryColor: #f5aa3a;
+}
+
 * {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
-  background-color: #04060d;
+  background-color: #000;
   color: #fff;
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  /* font-family: var(--font-sen);
-  font-family: var(--font-pop); */
+  background-color: var(--backgroundColor);
   scrollbar-width: thin;
-  /* scrollbar-color: #6eb69d #0c111a; */
 }
 
 .portal {

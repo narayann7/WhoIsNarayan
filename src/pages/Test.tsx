@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import base_assets from "../assets/base_assets";
 function Test() {
   return (
     <div
