@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import React, { ReactNode, createContext, useContext, useState } from "react";
-import AppProps from "../models/interfaces/app_props";
+import AppProps from "../models/app_props";
 
 export const RootContext = createContext({});
 export const useRootContext = () => useContext(RootContext);

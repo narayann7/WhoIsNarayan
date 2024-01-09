@@ -6,9 +6,11 @@ const coreTheme = {
     black: "#000000",
     grey: "#f1f1f1",
     background: "#010613",
+    secondaryBackground: "#131724",
   },
   fonts: {
     primary: "Poppins",
+    secondary: "Sen",
   },
   fontSizes: {
     small: "1rem",
@@ -29,6 +31,11 @@ const coreTheme = {
     small: "480px",
     medium: "768px",
     large: "1024px",
+  },
+  icons: {
+    small: "15px",
+    medium: "20px",
+    large: "30px",
   },
 };
 
