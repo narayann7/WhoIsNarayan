@@ -1,22 +1,40 @@
-import { MdAlternateEmail } from "react-icons/md";
-import { RiStackOverflowLine } from "react-icons/ri";
-import { FiGithub } from "react-icons/fi";
-import { GrLinkedinOption } from "react-icons/gr";
-import React from "react";
+import { IoLogoStackoverflow } from "react-icons/io5";
+import { SiMaildotru } from "react-icons/si";
+import { VscGithubInverted } from "react-icons/vsc";
+import { FaLinkedin } from "react-icons/fa";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import SizedBox from "../commons/SizedBox";
-import { SxProps, styled } from "@mui/material/styles";
+import { SxProps } from "@mui/material/styles";
 import coreTheme from "../../data/theme_data";
 import styles from "../commons/styles";
 import userData from "../../data/user_data";
-import { Tooltip, TooltipProps, tooltipClasses } from "@mui/material";
 import commonComponents from "../commons/CustomMui";
+import { useRootContext } from "../../contexts/root_provider";
 const { AppTooltip } = commonComponents;
 
 export default function Socials() {
+  //is copied
+  const [isCopied, setIsCopied] = useState(false);
+  const { size } = useRootContext();
+
   //open url in new tab
   const onUrl = (url: string) => {
     window.open(url, "_blank");
+  };
+
+  //on mail click
+  const onMailClick = () => {
+    if (size.mobile) {
+      onUrl(userData.links.mailTo);
+      return;
+    }
+    if (isCopied) {
+      onUrl(userData.links.mailTo);
+      return;
+    } else {
+      navigator.clipboard.writeText(userData.email);
+      setIsCopied(true);
+    }
   };
 
   //get user name from url path
@@ -34,58 +52,52 @@ export default function Socials() {
   return (
     <Box sx={styles.row}>
       <AppTooltip
-        sx={{
-          backgroundColor: "black",
+        title={isCopied ? "Copied! click again to open" : userData.email}
+        onClose={() => {
+          setIsCopied(false);
         }}
-        title={userData.email}
-        placement="bottom"
       >
         <Box
           style={{ ...iconStyles }}
           sx={iconStylesHover}
-          onClick={() => onUrl(userData.links.mailTo)}
+          onClick={() => onMailClick()}
         >
-          <MdAlternateEmail className="gmail_hover" />
+          <SiMaildotru />
         </Box>
       </AppTooltip>
-      <AppTooltip
-        title={getToolTipText(userData.links.github, "github.com")}
-        placement="bottom"
-      >
+      <AppTooltip title={getToolTipText(userData.links.github, "github.com")}>
         <Box
           style={{ ...iconStyles }}
           sx={iconStylesHover}
           onClick={() => onUrl(userData.links.github)}
         >
-          <FiGithub className="github_hover" />
+          <VscGithubInverted />
         </Box>
       </AppTooltip>
       <AppTooltip
         title={getToolTipText(userData.links.linkedIn, "linkedin.com")}
-        placement="bottom"
       >
         <Box
           style={{ ...iconStyles }}
           sx={iconStylesHover}
           onClick={() => onUrl(userData.links.linkedIn)}
         >
-          <GrLinkedinOption className="linkedin_hover" />
+          <FaLinkedin />
         </Box>
       </AppTooltip>
 
       <AppTooltip
         title={getToolTipText(
           userData.links.stackOverflow,
-          "stackOverflow.com"
+          "stackOverFlow.com"
         )}
-        placement="bottom"
       >
         <Box
           style={{ ...iconStyles }}
           sx={iconStylesHover}
           onClick={() => onUrl(userData.links.stackOverflow)}
         >
-          <RiStackOverflowLine className="stackOverflow_hover" />
+          <IoLogoStackoverflow />
         </Box>
       </AppTooltip>
     </Box>

@@ -1,16 +1,15 @@
+//todo: after final model
+//to get json, convert yml to json
+//then json to interface for typescript
 const userData = {
   name: "Narayann",
   fullName: "Laxmi Narayan Reddy",
   email: "laxminarayanreddy432@gmail.com",
-  phone: "82499033317",
+  phone: "8249903317",
   iAM: [
-    //add extra space at end
     "I'm a Software Developer ",
     "I'm a Tinkerer ",
     "I'm a Learner for life ",
-    // "I'm a Software Developer ✨ ",
-    // "I'm a Tinkerer 🛠 ",
-    // "I'm a Learner for life 🔮 ",
   ],
 
   links: {

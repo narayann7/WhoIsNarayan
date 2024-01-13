@@ -1,26 +1,25 @@
 import { useMediaQuery } from "@mui/material";
 import React, { ReactNode, createContext, useContext, useState } from "react";
-import AppProps from "../models/app_props";
+import AppProps from "../models/app_props_model";
+import { ContextApiModel, ResponsiveModel } from "../models/context_api_models";
 
-export const RootContext = createContext({});
-export const useRootContext = () => useContext(RootContext);
+export const RootContext = createContext(null as any);
 
 const RootProvider = (props: AppProps) => {
-  const Mq = {
-    esm: useMediaQuery("(min-width:400px)"),
-    sm: useMediaQuery("(max-width:600px)"),
-    bsm: useMediaQuery("(max-width:730px)"),
-    md: useMediaQuery("(max-width:1000px)"),
-    lg: useMediaQuery("(min-width:900px)"),
+  const size: ResponsiveModel = {
+    mobile: useMediaQuery("(max-width:425px)"),
+    tablet: useMediaQuery("(max-width:768px)"),
+    desktop: useMediaQuery("(max-width:1440px)"),
   };
-  const value = {
-    Mq,
+  const data = {
+    size,
   };
   return (
-    <RootContext.Provider value={value}>
+    <RootContext.Provider value={data}>
       {props.childrenElement}
     </RootContext.Provider>
   );
 };
 
 export default RootProvider;
+export const useRootContext = (): ContextApiModel => useContext(RootContext);

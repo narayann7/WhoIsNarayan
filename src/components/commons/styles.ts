@@ -51,16 +51,12 @@ const baseText: css = {
   fontSize: coreTheme.fontSizes.medium,
   backgroundColor: "transparent",
 };
-const Text = styled(Typography)(({ theme }) => ({
-  ...baseText,
-}));
 
 export default {
   center,
   left,
   right,
   maxSize,
-  Text,
   baseText,
   row,
   column,

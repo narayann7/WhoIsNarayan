@@ -1,22 +1,15 @@
 import React from "react";
 import styles from "../components/commons/styles";
-import Portal from "../components/elements/Portal";
 import userData from "../data/user_data";
 import { HiExternalLink } from "react-icons/hi";
 import coreTheme from "../data/theme_data";
-import { MdAlternateEmail } from "react-icons/md";
-import { RiStackOverflowLine } from "react-icons/ri";
-import { FiGithub } from "react-icons/fi";
-import { GrLinkedinOption } from "react-icons/gr";
-
 import SizedBox from "../components/commons/SizedBox";
 import { TypeAnimation } from "react-type-animation";
-import { delay } from "framer-motion";
 import Box from "@mui/material/Box";
 import Socials from "../components/elements/Socials";
 import { SxProps } from "@mui/material";
-
-const { Text } = styles;
+import commonComponents from "../components/commons/CustomMui";
+const { Text } = commonComponents;
 
 function Root() {
   return (
