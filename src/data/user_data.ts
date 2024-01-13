@@ -14,7 +14,14 @@ const userData = {
   ],
 
   links: {
-    resume: "https",
+    resume:
+      "https://drive.google.com/file/d/1sxU_HMqZx-nF0wXAs61iLcOher3pCmik/view",
+    github: "https://github.com/narayann7",
+    linkedIn: "https://www.linkedin.com/in/narayann",
+    twitter: "https://twitter.com/narayann_dev",
+    instagram: "https://www.instagram.com/narayann.dev",
+    stackOverflow: "https://stackoverflow.com/users/14385914/narayann",
+    mailTo: "mailto:laxminarayanreddy432@gmail.com",
   },
 };
 

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Typography } from "@mui/material";
+import { TooltipProps, Typography, tooltipClasses } from "@mui/material";
 import coreTheme from "../../data/theme_data";
 
 type css = React.CSSProperties;
@@ -51,7 +51,6 @@ const baseText: css = {
   fontSize: coreTheme.fontSizes.medium,
   backgroundColor: "transparent",
 };
-
 const Text = styled(Typography)(({ theme }) => ({
   ...baseText,
 }));

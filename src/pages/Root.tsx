@@ -61,7 +61,12 @@ function Root() {
       <SizedBox height="20px" />
 
       <Box sx={{ ...styles.row, alignItems: "center" }}>
-        <Box sx={resumeButtonStyles}>
+        <Box
+          sx={resumeButtonStyles}
+          onClick={() => {
+            window.open(userData.links.resume, "_blank");
+          }}
+        >
           <Text
             style={{
               ...styles.baseText,
@@ -74,6 +79,7 @@ function Root() {
           <SizedBox width="5px" />
           <HiExternalLink size={"14px"} color={"white"} />
         </Box>
+
         <SizedBox width="20px" />
         <Socials />
       </Box>
