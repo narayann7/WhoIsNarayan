@@ -1,7 +1,3 @@
-import gradient_blur from "../assets/gradient_blur.svg";
-
-const base_assets = {
-  gradient_blur,
-};
+const base_assets = {};
 
 export default base_assets;

@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "../components/commons/styles";
-import userData from "../data/user_data";
-import { HiExternalLink } from "react-icons/hi";
-import coreTheme from "../data/theme_data";
-import SizedBox from "../components/commons/SizedBox";
-import { TypeAnimation } from "react-type-animation";
-import Box from "@mui/material/Box";
-import Socials from "../components/elements/Socials";
 import { SxProps } from "@mui/material";
+import Box from "@mui/material/Box";
+import React from "react";
+import { HiExternalLink } from "react-icons/hi";
+import { TypeAnimation } from "react-type-animation";
 import commonComponents from "../components/commons/CustomMui";
+import SizedBox from "../components/commons/SizedBox";
+import styles from "../components/commons/styles";
+import Socials from "../components/elements/Socials";
+import coreTheme from "../data/theme_data";
+import userData from "../data/user_data";
 const { Text } = commonComponents;
 
 function Root() {

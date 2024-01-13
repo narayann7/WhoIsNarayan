@@ -1,5 +1,3 @@
-import styled from "@emotion/styled";
-import { TooltipProps, Typography, tooltipClasses } from "@mui/material";
 import coreTheme from "../../data/theme_data";
 
 type css = React.CSSProperties;
@@ -24,6 +22,13 @@ const centerRow: css = {
 //column
 const column: css = {
   display: "flex",
+  flexDirection: "column",
+};
+
+const centerColumn: css = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
   flexDirection: "column",
 };
 
@@ -61,4 +66,5 @@ export default {
   row,
   column,
   centerRow,
+  centerColumn,
 };

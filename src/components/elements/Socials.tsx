@@ -1,19 +1,18 @@
+import Box from "@mui/material/Box";
+import { SxProps } from "@mui/material/styles";
+import React, { useState } from "react";
+import { FaLinkedin } from "react-icons/fa";
 import { IoLogoStackoverflow } from "react-icons/io5";
 import { SiMaildotru } from "react-icons/si";
 import { VscGithubInverted } from "react-icons/vsc";
-import { FaLinkedin } from "react-icons/fa";
-import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import { SxProps } from "@mui/material/styles";
+import { useRootContext } from "../../contexts/root_provider";
 import coreTheme from "../../data/theme_data";
-import styles from "../commons/styles";
 import userData from "../../data/user_data";
 import commonComponents from "../commons/CustomMui";
-import { useRootContext } from "../../contexts/root_provider";
+import styles from "../commons/styles";
 const { AppTooltip } = commonComponents;
 
 export default function Socials() {
-  //is copied
   const [isCopied, setIsCopied] = useState(false);
   const { size } = useRootContext();
 
@@ -65,7 +64,7 @@ export default function Socials() {
           <SiMaildotru />
         </Box>
       </AppTooltip>
-      <AppTooltip title={getToolTipText(userData.links.github, "github.com")}>
+      <AppTooltip title={getToolTipText(userData.links.github, "github")}>
         <Box
           style={{ ...iconStyles }}
           sx={iconStylesHover}
@@ -74,9 +73,7 @@ export default function Socials() {
           <VscGithubInverted />
         </Box>
       </AppTooltip>
-      <AppTooltip
-        title={getToolTipText(userData.links.linkedIn, "linkedin.com")}
-      >
+      <AppTooltip title={getToolTipText(userData.links.linkedIn, "linkedin")}>
         <Box
           style={{ ...iconStyles }}
           sx={iconStylesHover}
@@ -87,10 +84,7 @@ export default function Socials() {
       </AppTooltip>
 
       <AppTooltip
-        title={getToolTipText(
-          userData.links.stackOverflow,
-          "stackOverFlow.com"
-        )}
+        title={getToolTipText(userData.links.stackOverflow, "stackoverflow")}
       >
         <Box
           style={{ ...iconStyles }}

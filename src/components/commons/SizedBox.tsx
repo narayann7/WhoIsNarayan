@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SizedBox(props: { width?: string; height?: string }) {
   const { width, height } = props;
   return (
