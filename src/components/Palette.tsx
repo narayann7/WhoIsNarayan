@@ -2,19 +2,21 @@ import { useEffect, useState } from "react";
 import CommandPalette, { filterItems, getItemIndex } from "react-cmdk";
 import "react-cmdk/dist/cmdk.css";
 import { BiHomeSmile } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import { useRootContext } from "../services/context_provider";
 
 const Palette = () => {
   const [page, setPage] = useState<"root" | "projects">("root");
   const [search, setSearch] = useState("");
   const { palette } = useRootContext();
+  const nav = useNavigate();
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (e.metaKey && e.key === "k") {
         e.preventDefault();
         e.stopPropagation();
-        palette.set((isOpen) => !isOpen);
+        palette.toggle();
       }
     }
 
@@ -34,21 +36,25 @@ const Palette = () => {
             id: "home",
             children: "Home",
             icon: BiHomeSmile,
-            href: "#",
+            onClick: () => {
+              nav("/");
+            },
           },
           {
-            id: "settings",
-            children: "Settings",
-            icon: "CogIcon",
-            href: "#",
+            id: "about",
+            children: "About",
+            icon: "UserIcon",
+            onClick: () => {
+              nav("/about");
+            },
           },
           {
-            id: "projects",
-            children: "Projects",
+            id: "work",
+            children: "work",
             icon: "RectangleStackIcon",
             closeOnSelect: false,
             onClick: () => {
-              setPage("projects");
+              nav("/work");
             },
           },
         ],

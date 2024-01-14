@@ -19,6 +19,9 @@ const RootProvider = (props: AppProps) => {
   const palette: PaletteModel = {
     isOpen: isPaletteOpen,
     set: setOpenPalette,
+    toggle: () => {
+      setOpenPalette((isOpen) => !isOpen);
+    },
   };
   const data = {
     size,

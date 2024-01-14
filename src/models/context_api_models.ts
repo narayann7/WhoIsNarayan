@@ -15,4 +15,5 @@ export interface ResponsiveModel {
 export interface PaletteModel {
   isOpen: boolean;
   set: React.Dispatch<React.SetStateAction<boolean>>;
+  toggle: () => void;
 }
