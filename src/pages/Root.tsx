@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import React from "react";
 import { HiExternalLink } from "react-icons/hi";
 import { TypeAnimation } from "react-type-animation";
+import Example from "../components/Pallete";
 import Socials from "../components/Socials";
 import commonComponents from "../components/commons/CustomMui";
 import SizedBox from "../components/commons/SizedBox";
@@ -53,7 +54,7 @@ function Root() {
       />
       <SizedBox height="20px" />
 
-      <Box sx={{ ...styles.row, alignItems: "center" }}>
+      <Box sx={{ ...styles.row, alignItems: "center", paddingLeft: "5px" }}>
         <Box
           sx={resumeButtonStyles}
           onClick={() => {
@@ -73,9 +74,10 @@ function Root() {
           <HiExternalLink size={"14px"} color={"white"} />
         </Box>
 
-        <SizedBox width="20px" />
+        <SizedBox width="25px" />
         <Socials />
       </Box>
+      <Example />
     </div>
   );
 }

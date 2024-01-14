@@ -5,10 +5,6 @@ import Root from "./pages/Root";
 function App() {
   return (
     <Routes>
-      {/* <Routes>
-        <Route path="/" element={}></Route>
-      </Routes>
-      <Footer /> */}
       <Route
         path="/"
         element={
@@ -17,8 +13,8 @@ function App() {
             <Footer />
           </>
         }
-      ></Route>
-      <Route path="/*" element={<Error404 />}></Route>
+      />
+      <Route path="/*" element={<Error404 />} />
     </Routes>
   );
 }
