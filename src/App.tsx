@@ -1,12 +1,23 @@
 import { Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
 import Error404 from "./pages/404";
 import Root from "./pages/Root";
-import Test from "./pages/Test";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Test />}></Route>
-      <Route path="/test" element={<Root />}></Route>
+      {/* <Routes>
+        <Route path="/" element={}></Route>
+      </Routes>
+      <Footer /> */}
+      <Route
+        path="/"
+        element={
+          <>
+            <Root />
+            <Footer />
+          </>
+        }
+      ></Route>
       <Route path="/*" element={<Error404 />}></Route>
     </Routes>
   );

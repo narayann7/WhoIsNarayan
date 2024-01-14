@@ -5,11 +5,11 @@ import { FaLinkedin } from "react-icons/fa";
 import { IoLogoStackoverflow } from "react-icons/io5";
 import { SiMaildotru } from "react-icons/si";
 import { VscGithubInverted } from "react-icons/vsc";
-import { useRootContext } from "../../contexts/root_provider";
-import coreTheme from "../../data/theme_data";
-import userData from "../../data/user_data";
-import commonComponents from "../commons/CustomMui";
-import styles from "../commons/styles";
+import { useRootContext } from "../contexts/root_provider";
+import coreTheme from "../data/theme_data";
+import userData from "../data/user_data";
+import commonComponents from "./commons/CustomMui";
+import styles from "./commons/styles";
 const { AppTooltip } = commonComponents;
 
 export default function Socials() {
