@@ -1,4 +1,5 @@
 import { MdKeyboardCommandKey } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import commonComponents from "./commons/CustomMui";
 import SizedBox from "./commons/SizedBox";
 import styles from "./commons/styles";
@@ -6,6 +7,8 @@ import styles from "./commons/styles";
 const { Text } = commonComponents;
 
 export default function Footer() {
+  const nav = useNavigate();
+
   return (
     <div
       style={{
@@ -18,7 +21,13 @@ export default function Footer() {
         paddingRight: "150px",
       }}
     >
-      <Text className="hover-underline-animation" style={textStyles}>
+      <Text
+        className="hover-underline-animation"
+        style={textStyles}
+        onClick={() => {
+          nav("/about");
+        }}
+      >
         about
       </Text>
       <SizedBox width={"50px"} />
@@ -32,6 +41,7 @@ export default function Footer() {
       <SizedBox width={"50px"} />
 
       <div
+        className="hover-underline-animation"
         style={{
           ...styles.row,
           alignItems: "center",
@@ -47,9 +57,7 @@ export default function Footer() {
             marginBottom: "5px",
           }}
         />
-        <Text className="hover-underline-animation" style={{ ...textStyles }}>
-          + k
-        </Text>
+        <Text style={{ ...textStyles }}>+ k</Text>
       </div>
     </div>
   );

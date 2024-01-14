@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import React from "react";
 import { HiExternalLink } from "react-icons/hi";
 import { TypeAnimation } from "react-type-animation";
-import Example from "../components/Pallete";
 import Socials from "../components/Socials";
 import commonComponents from "../components/commons/CustomMui";
 import SizedBox from "../components/commons/SizedBox";
@@ -12,9 +11,9 @@ import coreTheme from "../data/theme_data";
 import userData from "../data/user_data";
 const { Text } = commonComponents;
 
-function Root() {
+function Home() {
   return (
-    <div style={rootStyles}>
+    <div style={HomeStyles}>
       <Text
         style={{
           paddingLeft: "5px",
@@ -77,14 +76,13 @@ function Root() {
         <SizedBox width="25px" />
         <Socials />
       </Box>
-      <Example />
     </div>
   );
 }
 
-export default Root;
+export default Home;
 
-const rootStyles: React.CSSProperties = {
+const HomeStyles: React.CSSProperties = {
   ...styles.maxSize,
   display: "flex",
   paddingLeft: "250px",

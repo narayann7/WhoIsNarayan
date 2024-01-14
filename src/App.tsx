@@ -1,19 +1,17 @@
 import { Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer";
+import AppWrapper from "./components/AppWrapper";
 import Error404 from "./pages/404";
-import Root from "./pages/Root";
+import About from "./pages/About";
+import Connect from "./pages/Connect";
+import Home from "./pages/Home";
+import Work from "./pages/Work";
 function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <Root />
-            <Footer />
-          </>
-        }
-      />
+      <Route path="/" element={<AppWrapper component={<Home />} />} />
+      <Route path="about" element={<AppWrapper component={<About />} />} />
+      <Route path="work" element={<AppWrapper component={<Work />} />} />
+      <Route path="connect" element={<AppWrapper component={<Connect />} />} />
       <Route path="/*" element={<Error404 />} />
     </Routes>
   );

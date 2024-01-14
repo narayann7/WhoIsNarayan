@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import CommandPalette, { filterItems, getItemIndex } from "react-cmdk";
 import "react-cmdk/dist/cmdk.css";
+import { BiHomeSmile } from "react-icons/bi";
+import { useRootContext } from "../services/context_provider";
 
-const Example = () => {
+const Palette = () => {
   const [page, setPage] = useState<"root" | "projects">("root");
-  const [open, setOpen] = useState<boolean>(false);
   const [search, setSearch] = useState("");
+  const { palette } = useRootContext();
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (e.metaKey && e.key === "k") {
         e.preventDefault();
         e.stopPropagation();
-
-        setOpen((open) => !open);
+        palette.set((isOpen) => !isOpen);
       }
     }
 
@@ -32,7 +33,7 @@ const Example = () => {
           {
             id: "home",
             children: "Home",
-            icon: "HomeIcon",
+            icon: BiHomeSmile,
             href: "#",
           },
           {
@@ -52,32 +53,32 @@ const Example = () => {
           },
         ],
       },
-      {
-        heading: "Other",
-        id: "advanced",
-        items: [
-          {
-            id: "developer-settings",
-            children: "Developer settings",
-            icon: "CodeBracketIcon",
-            href: "#",
-          },
-          {
-            id: "privacy-policy",
-            children: "Privacy policy",
-            icon: "LifebuoyIcon",
-            href: "#",
-          },
-          {
-            id: "log-out",
-            children: "Log out",
-            icon: "ArrowRightOnRectangleIcon",
-            onClick: () => {
-              alert("Logging out...");
-            },
-          },
-        ],
-      },
+      // {
+      //   heading: "Other",
+      //   id: "advanced",
+      //   items: [
+      //     {
+      //       id: "developer-settings",
+      //       children: "Developer settings",
+      //       icon: "CodeBracketIcon",
+      //       href: "#",
+      //     },
+      //     {
+      //       id: "privacy-policy",
+      //       children: "Privacy policy",
+      //       icon: "LifebuoyIcon",
+      //       href: "#",
+      //     },
+      //     {
+      //       id: "log-out",
+      //       children: "Log out",
+      //       icon: "ArrowRightOnRectangleIcon",
+      //       onClick: () => {
+      //         alert("Logging out...");
+      //       },
+      //     },
+      //   ],
+      // },
     ],
     search
   );
@@ -86,9 +87,9 @@ const Example = () => {
     <div>
       <CommandPalette
         onChangeSearch={setSearch}
-        onChangeOpen={setOpen}
+        onChangeOpen={palette.set}
         search={search}
-        isOpen={open}
+        isOpen={palette.isOpen}
         page={page}
       >
         <CommandPalette.Page id="root">
@@ -117,4 +118,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default Palette;
