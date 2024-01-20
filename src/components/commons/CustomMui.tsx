@@ -21,7 +21,8 @@ const AppTooltip = styled(({ className, ...props }: TooltipProps) => (
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: coreTheme.colors.secondaryBackground,
     color: "white",
-    padding: "7px",
+    padding: "6px",
+    fontSize: "12px",
   },
 }));
 

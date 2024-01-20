@@ -3,17 +3,17 @@ import Box from "@mui/material/Box";
 import React from "react";
 import { HiExternalLink } from "react-icons/hi";
 import { TypeAnimation } from "react-type-animation";
+import Socials from "../components/Socials";
 import commonComponents from "../components/commons/CustomMui";
 import SizedBox from "../components/commons/SizedBox";
 import styles from "../components/commons/styles";
-import Socials from "../components/elements/Socials";
 import coreTheme from "../data/theme_data";
 import userData from "../data/user_data";
 const { Text } = commonComponents;
 
-function Root() {
+function Home() {
   return (
-    <div style={rootStyles}>
+    <div style={styles.pageContent}>
       <Text
         style={{
           paddingLeft: "5px",
@@ -42,18 +42,12 @@ function Root() {
         wrapper="h1"
         speed={10}
         deletionSpeed={10}
-        style={{
-          ...styles.baseText,
-          paddingLeft: "5px",
-          fontSize: "60px",
-          fontWeight: "700",
-          letterSpacing: "2px",
-        }}
+        style={typeStyle}
         repeat={Infinity}
       />
       <SizedBox height="20px" />
 
-      <Box sx={{ ...styles.row, alignItems: "center" }}>
+      <Box sx={{ ...styles.row, alignItems: "center", paddingLeft: "5px" }}>
         <Box
           sx={resumeButtonStyles}
           onClick={() => {
@@ -73,23 +67,14 @@ function Root() {
           <HiExternalLink size={"14px"} color={"white"} />
         </Box>
 
-        <SizedBox width="20px" />
+        <SizedBox width="25px" />
         <Socials />
       </Box>
     </div>
   );
 }
 
-export default Root;
-
-const rootStyles: React.CSSProperties = {
-  ...styles.maxSize,
-  display: "flex",
-  paddingLeft: "250px",
-  flexDirection: "column",
-  justifyContent: "center",
-  backgroundColor: coreTheme.colors.background,
-};
+export default Home;
 
 const resumeButtonStyles: SxProps = {
   width: "120px",
@@ -106,4 +91,12 @@ const resumeButtonStyles: SxProps = {
     backgroundColor: coreTheme.colors.background,
     border: `2.5px solid ${coreTheme.colors.secondaryBackground}`,
   },
+};
+
+const typeStyle: React.CSSProperties = {
+  ...styles.baseText,
+  paddingLeft: "5px",
+  fontSize: "60px",
+  fontWeight: "700",
+  letterSpacing: "2px",
 };

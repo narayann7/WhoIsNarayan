@@ -1,3 +1,6 @@
-const base_assets = {};
+import lpLogo from "./lp_logo.svg";
+const baseAssets = {
+  lpLogo,
+};
 
-export default base_assets;
+export default baseAssets;

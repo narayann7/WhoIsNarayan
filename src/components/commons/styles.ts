@@ -57,6 +57,15 @@ const baseText: css = {
   backgroundColor: "transparent",
 };
 
+const pageContent: React.CSSProperties = {
+  ...maxSize,
+  display: "flex",
+  paddingLeft: "250px",
+  flexDirection: "column",
+  justifyContent: "center",
+  backgroundColor: coreTheme.colors.background,
+};
+
 export default {
   center,
   left,
@@ -67,4 +76,5 @@ export default {
   column,
   centerRow,
   centerColumn,
+  pageContent,
 };

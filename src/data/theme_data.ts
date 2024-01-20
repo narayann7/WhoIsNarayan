@@ -6,7 +6,7 @@ const coreTheme = {
     black: "#000000",
     grey: "#f1f1f1",
     background: "#010613",
-    secondaryBackground: "#131724",
+    secondaryBackground: "#1A1E2C",
   },
   fonts: {
     primary: "Poppins",
