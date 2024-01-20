@@ -13,7 +13,7 @@ const { Text } = commonComponents;
 
 function Home() {
   return (
-    <div style={HomeStyles}>
+    <div style={styles.pageContent}>
       <Text
         style={{
           paddingLeft: "5px",
@@ -42,13 +42,7 @@ function Home() {
         wrapper="h1"
         speed={10}
         deletionSpeed={10}
-        style={{
-          ...styles.baseText,
-          paddingLeft: "5px",
-          fontSize: "60px",
-          fontWeight: "700",
-          letterSpacing: "2px",
-        }}
+        style={typeStyle}
         repeat={Infinity}
       />
       <SizedBox height="20px" />
@@ -82,15 +76,6 @@ function Home() {
 
 export default Home;
 
-const HomeStyles: React.CSSProperties = {
-  ...styles.maxSize,
-  display: "flex",
-  paddingLeft: "250px",
-  flexDirection: "column",
-  justifyContent: "center",
-  backgroundColor: coreTheme.colors.background,
-};
-
 const resumeButtonStyles: SxProps = {
   width: "120px",
   height: "42px",
@@ -106,4 +91,12 @@ const resumeButtonStyles: SxProps = {
     backgroundColor: coreTheme.colors.background,
     border: `2.5px solid ${coreTheme.colors.secondaryBackground}`,
   },
+};
+
+const typeStyle: React.CSSProperties = {
+  ...styles.baseText,
+  paddingLeft: "5px",
+  fontSize: "60px",
+  fontWeight: "700",
+  letterSpacing: "2px",
 };

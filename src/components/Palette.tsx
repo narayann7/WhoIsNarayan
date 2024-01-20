@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import CommandPalette, { filterItems, getItemIndex } from "react-cmdk";
 import "react-cmdk/dist/cmdk.css";
 import { BiHomeSmile } from "react-icons/bi";
+
+import { MdWorkOutline } from "react-icons/md";
+import { TbUserHeart } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import { useRootContext } from "../services/context_provider";
 
@@ -34,7 +37,7 @@ const Palette = () => {
         items: [
           {
             id: "home",
-            children: "Home",
+            children: "home",
             icon: BiHomeSmile,
             onClick: () => {
               nav("/");
@@ -42,8 +45,8 @@ const Palette = () => {
           },
           {
             id: "about",
-            children: "About",
-            icon: "UserIcon",
+            children: "about",
+            icon: TbUserHeart,
             onClick: () => {
               nav("/about");
             },
@@ -51,40 +54,13 @@ const Palette = () => {
           {
             id: "work",
             children: "work",
-            icon: "RectangleStackIcon",
-            closeOnSelect: false,
+            icon: MdWorkOutline,
             onClick: () => {
               nav("/work");
             },
           },
         ],
       },
-      // {
-      //   heading: "Other",
-      //   id: "advanced",
-      //   items: [
-      //     {
-      //       id: "developer-settings",
-      //       children: "Developer settings",
-      //       icon: "CodeBracketIcon",
-      //       href: "#",
-      //     },
-      //     {
-      //       id: "privacy-policy",
-      //       children: "Privacy policy",
-      //       icon: "LifebuoyIcon",
-      //       href: "#",
-      //     },
-      //     {
-      //       id: "log-out",
-      //       children: "Log out",
-      //       icon: "ArrowRightOnRectangleIcon",
-      //       onClick: () => {
-      //         alert("Logging out...");
-      //       },
-      //     },
-      //   ],
-      // },
     ],
     search
   );

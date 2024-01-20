@@ -1,6 +1,7 @@
 import { MdKeyboardCommandKey } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import baseAssets from "../assets/base_assets";
+import coreTheme from "../data/theme_data";
 import { useRootContext } from "../services/context_provider";
 import commonComponents from "./commons/CustomMui";
 import SizedBox from "./commons/SizedBox";
@@ -31,18 +32,7 @@ export default function Footer() {
   });
 
   return (
-    <div
-      style={{
-        ...styles.row,
-        position: "fixed",
-        bottom: "0",
-        justifyContent: "right",
-        alignItems: "center",
-        width: "100vw",
-        paddingBottom: "60px",
-        paddingRight: "150px",
-      }}
-    >
+    <div style={footerStyles}>
       {pathItems}
       <div
         className="hover-underline-animation"
@@ -55,15 +45,7 @@ export default function Footer() {
           palette.toggle();
         }}
       >
-        <MdKeyboardCommandKey
-          style={{
-            fontSize: "16px",
-            color: "white",
-            cursor: "pointer",
-            marginRight: "5px",
-            marginBottom: "5px",
-          }}
-        />
+        <MdKeyboardCommandKey style={iconStyles} />
         <Text style={{ ...textStyles }}>+ k</Text>
       </div>
       <SizedBox width={"40px"} />
@@ -74,6 +56,7 @@ export default function Footer() {
         style={{
           width: "20px",
           height: "20px",
+          cursor: "pointer",
         }}
         src={baseAssets.lpLogo}
         alt="Your SVG"
@@ -87,4 +70,27 @@ const textStyles: React.CSSProperties = {
   paddingBottom: "5px",
   cursor: "pointer",
   letterSpacing: "2px",
+};
+
+const iconStyles: React.CSSProperties = {
+  fontSize: "16px",
+  color: "white",
+  cursor: "pointer",
+  marginRight: "5px",
+  marginBottom: "5px",
+};
+
+const footerStyles: React.CSSProperties = {
+  ...styles.row,
+  position: "fixed",
+  bottom: "0",
+  display: "flex",
+  justifyContent: "right",
+  alignItems: "center",
+  width: "100vw",
+  height: "100px",
+  paddingBottom: "80px",
+  paddingTop: "40px",
+  paddingRight: "150px",
+  backgroundColor: coreTheme.colors.background,
 };

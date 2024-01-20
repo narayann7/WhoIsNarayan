@@ -1,1 +1,1 @@
-##### portfolio website with vite, react, typescript, tailwind
+##### portfolio website with vite, react, typescript, material-ui
