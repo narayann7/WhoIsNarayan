@@ -33,18 +33,20 @@ function Home() {
       </Text>
       <SizedBox height="20px" />
 
-      <TypeAnimation
-        sequence={userData.iAM
-          .map((item) => {
-            return [item, 1000];
-          })
-          .flat()}
-        wrapper="h1"
-        speed={10}
-        deletionSpeed={10}
-        style={typeStyle}
-        repeat={Infinity}
-      />
+      {userData.iAM.length != 0 && (
+        <TypeAnimation
+          sequence={userData.iAM
+            .map((item) => {
+              return [item, 1000];
+            })
+            .flat()}
+          wrapper="h1"
+          speed={10}
+          deletionSpeed={10}
+          style={typeStyle}
+          repeat={Infinity}
+        />
+      )}
       <SizedBox height="20px" />
 
       <Box sx={{ ...styles.row, alignItems: "center", paddingLeft: "5px" }}>
