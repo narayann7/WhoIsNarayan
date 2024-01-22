@@ -5,7 +5,7 @@ import { BiHomeSmile } from "react-icons/bi";
 
 import { MdWorkOutline } from "react-icons/md";
 import { TbUserHeart } from "react-icons/tb";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useRootContext } from "../services/context_provider";
 
 const Palette = () => {
@@ -13,6 +13,7 @@ const Palette = () => {
   const [search, setSearch] = useState("");
   const { palette } = useRootContext();
   const nav = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -57,6 +58,20 @@ const Palette = () => {
             icon: MdWorkOutline,
             onClick: () => {
               nav("/work");
+            },
+          },
+          {
+            id: "skills",
+            children: "skills",
+            icon: MdWorkOutline,
+            onClick: () => {
+              const path = location.pathname;
+              if (path === "/about") {
+                const element = document.getElementById("skills");
+                element?.scrollIntoView({ behavior: "smooth" });
+              } else {
+                nav("/about#skills");
+              }
             },
           },
         ],

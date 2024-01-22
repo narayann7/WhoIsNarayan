@@ -3,6 +3,7 @@
 
 :root {
   --backgroundColor: #010613;
+  --secondaryBackgroundColor: #1a1e2c;
   --primaryColor: #f5aa3a;
   --primaryFontFamily: "Poppins";
   --secondaryFontFamily: "Sen";
@@ -20,11 +21,15 @@
   font-family: var(--primaryFontFamily);
   scrollbar-width: thin;
 }
-
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: none; /* Optional: just make scrollbar invisible */
+}
 body {
   background-color: var(--backgroundColor);
   font-family: var(--primaryFontFamily);
   overflow-x: hidden;
+  scrollbar-width: thin;
 }
 
 .portal {

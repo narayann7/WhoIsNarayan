@@ -63,6 +63,7 @@ const pageContent: React.CSSProperties = {
   paddingLeft: "250px",
   flexDirection: "column",
   justifyContent: "center",
+  paddingRight: "250px",
   backgroundColor: coreTheme.colors.background,
 };
 

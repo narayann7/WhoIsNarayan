@@ -58,7 +58,7 @@ export default function Footer() {
           height: "20px",
           cursor: "pointer",
         }}
-        src={baseAssets.lpLogo}
+        src={baseAssets.icons.lpIcon}
         alt="Your SVG"
       />
     </div>
@@ -91,6 +91,6 @@ const footerStyles: React.CSSProperties = {
   height: "100px",
   paddingBottom: "80px",
   paddingTop: "40px",
-  paddingRight: "150px",
+  paddingRight: "250px",
   backgroundColor: coreTheme.colors.background,
 };
