@@ -1,20 +1,17 @@
-import Box from "@mui/material/Box";
-import { SxProps } from "@mui/material/styles";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoStackoverflow } from "react-icons/io5";
 import { SiMaildotru } from "react-icons/si";
 import { VscGithubInverted } from "react-icons/vsc";
-import coreTheme from "../data/theme_data";
 import userData from "../data/user_data";
 import { useRootContext } from "../services/context_provider";
-import commonComponents from "./commons/CustomMui";
-import styles from "./commons/styles";
-const { AppTooltip } = commonComponents;
+import LinkTooltip from "./commons/LinkTooltip";
 
 export default function Socials() {
   const [isCopied, setIsCopied] = useState(false);
-  const { size, palette } = useRootContext();
+  const { size } = useRootContext();
+  const iconStyle =
+    "base-center text-white cursor-pointer h-[35px] w-[35px] text-[20px]";
 
   //open url in new tab
   const onUrl = (url: string) => {
@@ -33,6 +30,10 @@ export default function Socials() {
     } else {
       navigator.clipboard.writeText(userData.email);
       setIsCopied(true);
+      //delay for 3 seconds and reset isCopied
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 1000);
     }
   };
 
@@ -48,76 +49,48 @@ export default function Socials() {
     return domain + "/" + userName;
   };
 
-  return (
-    <Box sx={styles.row}>
-      <AppTooltip
-        title={isCopied ? "Copied! click again to open" : userData.email}
-        onClose={() => {
-          setIsCopied(false);
-        }}
-      >
-        <Box
-          style={{ ...iconStyles }}
-          sx={iconStylesHover}
-          onClick={() => onMailClick()}
-        >
-          <SiMaildotru />
-        </Box>
-      </AppTooltip>
-      <AppTooltip title={getToolTipText(userData.links.github, "github")}>
-        <Box
-          style={{ ...iconStyles }}
-          sx={iconStylesHover}
-          onClick={() => onUrl(userData.links.github)}
-        >
-          <VscGithubInverted />
-        </Box>
-      </AppTooltip>
-      <AppTooltip title={getToolTipText(userData.links.linkedIn, "linkedin")}>
-        <Box
-          style={{ ...iconStyles }}
-          sx={iconStylesHover}
-          onClick={() => onUrl(userData.links.linkedIn)}
-        >
-          <FaLinkedin />
-        </Box>
-      </AppTooltip>
+  const socials: {
+    icon: JSX.Element;
+    url: string;
+    tooltip: string;
+  }[] = [
+    {
+      icon: <VscGithubInverted />,
+      url: userData.links.github,
+      tooltip: "github",
+    },
+    {
+      icon: <FaLinkedin />,
+      url: userData.links.linkedIn,
+      tooltip: "linkedin",
+    },
+    {
+      icon: <IoLogoStackoverflow />,
+      url: userData.links.stackOverflow,
+      tooltip: "stackoverflow",
+    },
+  ];
 
-      <AppTooltip
-        title={getToolTipText(userData.links.stackOverflow, "stackoverflow")}
+  return (
+    <div className="row">
+      <LinkTooltip
+        text={isCopied ? "Copied! click again to open" : userData.email}
+        open={isCopied}
       >
-        <Box
-          style={{ ...iconStyles }}
-          sx={iconStylesHover}
-          onClick={() => onUrl(userData.links.stackOverflow)}
+        <div className={iconStyle} onClick={() => onMailClick()}>
+          <SiMaildotru />
+        </div>
+      </LinkTooltip>
+      {socials.map((social, index) => (
+        <LinkTooltip
+          key={index}
+          text={getToolTipText(social.url, social.tooltip)}
         >
-          <IoLogoStackoverflow />
-        </Box>
-      </AppTooltip>
-    </Box>
+          <div className={iconStyle} onClick={() => onUrl(social.url)}>
+            {social.icon}
+          </div>
+        </LinkTooltip>
+      ))}
+    </div>
   );
 }
-
-const iconStyles: React.CSSProperties = {
-  fontSize: coreTheme.icons.medium,
-  color: "white",
-  cursor: "pointer",
-  padding: "0px",
-  margin: "0px",
-  borderRadius: "50%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  height: "35px",
-  width: "35px",
-};
-
-const iconStylesHover: SxProps = () => {
-  return {
-    "&:hover": {
-      borderRadius: "50%",
-      transition: "all 0.3s ease-in-out",
-      color: "black",
-    },
-  };
-};

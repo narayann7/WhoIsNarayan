@@ -81,6 +81,12 @@
   .base-center {
     @apply flex justify-center items-center;
   }
+  .row {
+    @apply flex flex-row;
+  }
+  .col {
+    @apply flex flex-col;
+  }
 }
 
 :root {
