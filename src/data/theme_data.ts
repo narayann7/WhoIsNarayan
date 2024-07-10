@@ -7,6 +7,7 @@ const coreTheme = {
     grey: "#f1f1f1",
     background: "#010613",
     secondaryBackground: "#1A1E2C",
+    borderColor: "#313238",
   },
   fonts: {
     primary: "Poppins",
@@ -26,6 +27,9 @@ const coreTheme = {
     small: "0.5rem",
     medium: "1rem",
     large: "1.5rem",
+  },
+  padding: {
+    rootHorizontal: "250px",
   },
   breakpoints: {
     small: "480px",

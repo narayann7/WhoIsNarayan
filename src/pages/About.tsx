@@ -31,16 +31,15 @@ export default function About() {
         <SizedBox height="25vh" />
         <Profile />
         <SizedBox height="40px" />
+
         <Text
           style={{
-            fontSize: "20px",
+            ...styles.pageDescription,
             paddingLeft: "10px",
-            letterSpacing: "1px",
-            lineHeight: "1.5",
-            fontFamily: "Sen",
+            textAlign: "justify",
           }}
         >
-          {userData.aboutMe[0]}
+          {userData.descriptions.aboutMe[0]}
         </Text>
       </div>
     </div>

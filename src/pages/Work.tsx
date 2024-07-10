@@ -1,3 +1,9 @@
+import Backpack from "../components/Backpack";
+
 export default function Work() {
-  return <div>Work</div>;
+  return (
+    <div>
+      <Backpack />
+    </div>
+  );
 }

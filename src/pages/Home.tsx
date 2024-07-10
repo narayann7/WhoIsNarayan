@@ -1,6 +1,5 @@
 import { SxProps } from "@mui/material";
 import Box from "@mui/material/Box";
-import React from "react";
 import { HiExternalLink } from "react-icons/hi";
 import { TypeAnimation } from "react-type-animation";
 import Socials from "../components/Socials";
@@ -9,69 +8,76 @@ import SizedBox from "../components/commons/SizedBox";
 import styles from "../components/commons/styles";
 import coreTheme from "../data/theme_data";
 import userData from "../data/user_data";
+
 const { Text } = commonComponents;
 
 function Home() {
   return (
-    <div style={styles.pageContent}>
-      <Text
-        style={{
-          paddingLeft: "5px",
-        }}
-      >
-        hey 👋🏻, I’m
-      </Text>
-      <SizedBox height="15px" />
-      <Text
-        style={{
-          color: coreTheme.colors.primary,
-          fontWeight: "700",
-          fontSize: "120px",
-        }}
-      >
-        {userData.name}
-      </Text>
-      <SizedBox height="20px" />
-
-      {userData.iAM.length != 0 && (
-        <TypeAnimation
-          sequence={userData.iAM
-            .map((item) => {
-              return [item, 1000];
-            })
-            .flat()}
-          wrapper="h1"
-          speed={10}
-          deletionSpeed={10}
-          style={typeStyle}
-          repeat={Infinity}
-        />
-      )}
-      <SizedBox height="20px" />
-
-      <Box sx={{ ...styles.row, alignItems: "center", paddingLeft: "5px" }}>
-        <Box
-          sx={resumeButtonStyles}
-          onClick={() => {
-            window.open(userData.links.resume, "_blank");
+    <div className="max-size flex flex-row justify-between items-center px-root">
+      <div>
+        <Text className="pl-[6px]">hey 👋🏻, I’m</Text>
+        <SizedBox height="15px" />
+        <h6 className="base-text">{"hello"}</h6>
+        <Text
+          className="text"
+          style={{
+            color: coreTheme.colors.primary,
+            fontWeight: "700",
+            fontSize: "120px",
           }}
         >
-          <Text
-            style={{
-              ...styles.baseText,
-              fontSize: "14px",
-              letterSpacing: "1px",
+          {userData.name}
+        </Text>
+        <SizedBox height="20px" />
+
+        {userData.iAM.length != 0 && (
+          <TypeAnimation
+            sequence={userData.iAM
+              .map((item) => {
+                return [item, 1000];
+              })
+              .flat()}
+            wrapper="h1"
+            speed={10}
+            deletionSpeed={10}
+            style={typeStyle}
+            repeat={Infinity}
+          />
+        )}
+        <SizedBox height="20px" />
+
+        <Box sx={{ ...styles.row, alignItems: "center", paddingLeft: "5px" }}>
+          <Box
+            sx={resumeButtonStyles}
+            onClick={() => {
+              window.open(userData.links.resume, "_blank");
             }}
           >
-            Resume
-          </Text>
-          <SizedBox width="5px" />
-          <HiExternalLink size={"14px"} color={"white"} />
-        </Box>
+            <Text
+              style={{
+                ...styles.baseText,
+                fontSize: "14px",
+                letterSpacing: "1px",
+              }}
+            >
+              Resume
+            </Text>
+            <SizedBox width="5px" />
+            <HiExternalLink size={"14px"} color={"white"} />
+          </Box>
 
-        <SizedBox width="25px" />
-        <Socials />
-      </Box>
+          <SizedBox width="25px" />
+          <Socials />
+        </Box>
+      </div>
+      {/* <div
+        style={{
+          height: "400px",
+          width: "400px",
+        }}
+      >
+        <BackgroundAnimation />
+      </div> */}
     </div>
   );
 }

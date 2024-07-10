@@ -44,38 +44,53 @@ const right: css = {
   alignItems: "center",
 };
 
-const maxSize: css = {
-  width: "100vw",
-  height: "100vh",
-};
+
+
+
 
 const baseText: css = {
   fontFamily: coreTheme.fonts.primary,
-  fontWeight: 500,
+  fontWeight: 400,
   lineHeight: 1,
   fontSize: coreTheme.fontSizes.medium,
   backgroundColor: "transparent",
 };
 
 const pageContent: React.CSSProperties = {
-  ...maxSize,
+  // ...maxSize,
   display: "flex",
-  paddingLeft: "250px",
   flexDirection: "column",
   justifyContent: "center",
-  paddingRight: "250px",
+  paddingRight: coreTheme.padding.rootHorizontal,
+  paddingLeft: coreTheme.padding.rootHorizontal,
   backgroundColor: coreTheme.colors.background,
+};
+
+const pageDescription: React.CSSProperties = {
+  fontSize: "20px",
+  letterSpacing: "1px",
+  lineHeight: "1.5",
+  fontFamily: coreTheme.fonts.secondary,
+};
+
+const pageHeading: React.CSSProperties = {
+  fontSize: "24px",
+  fontWeight: 600,
+  letterSpacing: "1.5px",
+  fontFamily: coreTheme.fonts.primary,
 };
 
 export default {
   center,
   left,
   right,
-  maxSize,
+  pageContent,
+  pageDescription,
+  pageHeading,
+
   baseText,
   row,
   column,
   centerRow,
   centerColumn,
-  pageContent,
 };

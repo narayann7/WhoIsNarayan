@@ -91,6 +91,7 @@ const footerStyles: React.CSSProperties = {
   height: "100px",
   paddingBottom: "80px",
   paddingTop: "40px",
-  paddingRight: "250px",
+  paddingRight: coreTheme.padding.rootHorizontal,
+  paddingLeft: coreTheme.padding.rootHorizontal,
   backgroundColor: coreTheme.colors.background,
 };
