@@ -1,0 +1,3 @@
+- svg animation
+- selected index for footer
+- on profile click on nymble nav to work

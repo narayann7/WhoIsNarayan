@@ -1,110 +1,48 @@
-import { SxProps } from "@mui/material";
-import Box from "@mui/material/Box";
+import MyTypeAnimation from "@/components/MyTypeAnimation";
 import { HiExternalLink } from "react-icons/hi";
-import { TypeAnimation } from "react-type-animation";
 import Socials from "../components/Socials";
-import commonComponents from "../components/commons/CustomMui";
 import SizedBox from "../components/commons/SizedBox";
-import styles from "../components/commons/styles";
-import coreTheme from "../data/theme_data";
 import userData from "../data/user_data";
 
-const { Text } = commonComponents;
-
-function Home() {
+export default function Home() {
   return (
     <div className="max-size flex flex-row justify-between items-center px-root">
       <div>
-        <Text className="pl-[6px]">hey 👋🏻, I’m</Text>
+        <div className="base-text pl-[6px]">{"hey 👋🏻, I’m"}</div>
+
         <SizedBox height="15px" />
-        <h6 className="base-text">{"hello"}</h6>
-        <Text
-          className="text"
-          style={{
-            color: coreTheme.colors.primary,
-            fontWeight: "700",
-            fontSize: "120px",
-          }}
-        >
+
+        <div className="base-text font-bold text-[120px] text-primary">
           {userData.name}
-        </Text>
+        </div>
+
         <SizedBox height="20px" />
 
-        {userData.iAM.length != 0 && (
-          <TypeAnimation
-            sequence={userData.iAM
-              .map((item) => {
-                return [item, 1000];
-              })
-              .flat()}
-            wrapper="h1"
-            speed={10}
-            deletionSpeed={10}
-            style={typeStyle}
-            repeat={Infinity}
-          />
-        )}
+        <MyTypeAnimation />
+
         <SizedBox height="20px" />
 
-        <Box sx={{ ...styles.row, alignItems: "center", paddingLeft: "5px" }}>
-          <Box
-            sx={resumeButtonStyles}
+        <div className="flex flex-row items-center pl-[5px]">
+          <div
+            className="h-[42px] w-[120px]  base-center bg-secondaryBackground rounded-md cursor-pointer transition-all duration-300 ease-in-out border-none hover:duration-500 hover:bg-background hover:border-solid hover:border-2 hover:border-secondaryBackground border-secondaryBackground"
             onClick={() => {
               window.open(userData.links.resume, "_blank");
             }}
           >
-            <Text
-              style={{
-                ...styles.baseText,
-                fontSize: "14px",
-                letterSpacing: "1px",
-              }}
-            >
-              Resume
-            </Text>
+            <div className="base-text text-[14px] tracking-[1px]">
+              {"Resume"}
+            </div>
+
             <SizedBox width="5px" />
+
             <HiExternalLink size={"14px"} color={"white"} />
-          </Box>
+          </div>
 
           <SizedBox width="25px" />
+
           <Socials />
-        </Box>
+        </div>
       </div>
-      {/* <div
-        style={{
-          height: "400px",
-          width: "400px",
-        }}
-      >
-        <BackgroundAnimation />
-      </div> */}
     </div>
   );
 }
-
-export default Home;
-
-const resumeButtonStyles: SxProps = {
-  width: "120px",
-  height: "42px",
-  backgroundColor: coreTheme.colors.secondaryBackground,
-  borderRadius: 2,
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  cursor: "pointer",
-  transition: "all 0.3s ease-in-out",
-  "&:hover": {
-    transition: "background-color 0.5s ease;",
-    backgroundColor: coreTheme.colors.background,
-    border: `2.5px solid ${coreTheme.colors.secondaryBackground}`,
-  },
-};
-
-const typeStyle: React.CSSProperties = {
-  ...styles.baseText,
-  paddingLeft: "5px",
-  fontSize: "60px",
-  fontWeight: "700",
-  letterSpacing: "2px",
-};
