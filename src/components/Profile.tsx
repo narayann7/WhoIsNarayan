@@ -1,59 +1,34 @@
 import baseAssets from "../assets/base_assets";
-import coreTheme from "../data/theme_data";
 import userData from "../data/user_data";
-import commonComponents from "./commons/CustomMui";
 import SizedBox from "./commons/SizedBox";
-import styles from "./commons/styles";
-
-const { Text } = commonComponents;
 
 export default function Profile() {
   return (
-    <div style={{ ...styles.row, display: "flex", alignItems: "center" }}>
-      <div style={styles.row}>
+    <div className="row items-center">
+      <div>
         <img
+          className="rounded-full w-[200px] h-[200px] object-cover"
           draggable="false"
-          style={{
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            objectFit: "cover",
-          }}
           src={baseAssets.images.dp}
           alt="profile pic"
         />
       </div>
       <SizedBox width="30px" />
       <div>
-        <Text
-          style={{
-            fontSize: "30px",
-            fontWeight: "bold",
-          }}
-        >
-          {userData.fullName}
-        </Text>
+        <div className="base-text text-3xl font-bold">{userData.fullName}</div>
         <SizedBox height="10px" />
-        <div style={styles.row}>
-          <Text>{userData.work[0].shortNameRole}</Text>
+        <div className="row">
+          <div className="base-text">{userData.work[0].shortNameRole}</div>
           <SizedBox width="8px" />
-          <Text>at @</Text>
-          <Text
-            style={{
-              cursor: "pointer",
-            }}
-            sx={{
-              "&:hover": {
-                transition: "all 0.3s ease-in-out",
-                color: coreTheme.colors.primary,
-              },
-            }}
+          <div className="base-text">at @</div>
+          <div
+            className="base-text cursor-pointer hover:transition-all 0.3s ease-in-out hover:text-primary"
             onClick={() => {
               window.open(userData.work[0].url, "_blank");
             }}
           >
             {userData.work[0].companyName}
-          </Text>
+          </div>
         </div>
       </div>
     </div>

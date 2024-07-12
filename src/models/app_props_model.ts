@@ -5,4 +5,13 @@ interface AppProps {
   onChange?: React.FormEventHandler<HTMLInputElement>; // form events! the generic parameter is the type of event.target
 }
 
-export default AppProps;
+type LinkTooltipProps = {
+  children: JSX.Element;
+  text: string;
+  open?: boolean;
+  onChanges?: (v: boolean) => void;
+};
+
+export type { AppProps, LinkTooltipProps };
+
+

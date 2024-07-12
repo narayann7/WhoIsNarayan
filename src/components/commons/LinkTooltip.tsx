@@ -1,16 +1,10 @@
+import { LinkTooltipProps } from "@/models/app_props_model";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
-
-type LinkTooltipProps = {
-  children: JSX.Element;
-  text: string;
-  open?: boolean;
-  onChanges?: (v: boolean) => void;
-};
 
 export default function LinkTooltip({
   children,

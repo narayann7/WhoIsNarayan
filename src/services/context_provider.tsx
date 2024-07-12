@@ -1,6 +1,6 @@
+import { AppProps } from "@/models/app_props_model";
 import { useMediaQuery } from "@mui/material";
 import { createContext, useContext, useState } from "react";
-import AppProps from "../models/app_props_model";
 import {
   ContextApiModel,
   PaletteModel,

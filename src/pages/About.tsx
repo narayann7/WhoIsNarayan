@@ -21,12 +21,7 @@ export default function About() {
     }
   }, []);
   return (
-    <div
-      style={{
-        ...styles.pageContent,
-        justifyContent: "start",
-      }}
-    >
+    <div className="col justify-start px-root">
       <div>
         <SizedBox height="25vh" />
         <Profile />
