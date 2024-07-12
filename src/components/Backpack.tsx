@@ -3,15 +3,15 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import baseAssets from "../assets/base_assets";
-import commonMui from "./commons/CustomMui";
+
 import SizedBox from "./commons/SizedBox";
-import styles from "./commons/styles";
-const { Text } = commonMui;
 
 export default function Backpack() {
   return (
     <div className="max-size flex col justify-center px-root">
-      <Text style={styles.pageHeading}>My Backpack</Text>
+      <div className="base-text text-[24px] tracking-[1px] leading-[1.5px] font-semibold">
+        My Backpack
+      </div>
       <SizedBox height={"20px"} />
       <div className="text-des">{userData.descriptions.backPackDetails[0]}</div>
 

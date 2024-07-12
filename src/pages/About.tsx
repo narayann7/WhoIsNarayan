@@ -1,13 +1,10 @@
 import Profile from "../components/Profile";
-import styles from "../components/commons/styles";
 
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import commonMuiComponents from "../components/commons/CustomMui";
+
 import SizedBox from "../components/commons/SizedBox";
 import userData from "../data/user_data";
-
-const { Text } = commonMuiComponents;
 
 export default function About() {
   const nav = useNavigate();
@@ -27,15 +24,9 @@ export default function About() {
         <Profile />
         <SizedBox height="40px" />
 
-        <Text
-          style={{
-            ...styles.pageDescription,
-            paddingLeft: "10px",
-            textAlign: "justify",
-          }}
-        >
+        <div className="text-des pl-[10px] text-justify">
           {userData.descriptions.aboutMe[0]}
-        </Text>
+        </div>
       </div>
     </div>
   );
