@@ -78,6 +78,10 @@
   .base-text {
     @apply font-primary font-normal text-[1.5rem] bg-transparent leading-[1];
   }
+  .text-des {
+    @apply font-secondary font-normal text-[20px] leading-[1.5] tracking-[1px];
+  }
+
   .base-center {
     @apply flex justify-center items-center;
   }
@@ -210,4 +214,7 @@ body {
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+.swiper-wrapper {
+  transition-timing-function: linear;
 }

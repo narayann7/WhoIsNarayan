@@ -1,35 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import SizedBox from "../components/commons/SizedBox";
-import styles from "../components/commons/styles";
 
 export default function Test() {
   const navigate = useNavigate();
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "#000",
-        fontFamily: "sans-serif",
-        fontWeight: 700,
-      }}
-    >
-      <h1>🛠️ under development | check out v1 👇</h1>
+    <div className="flex justify-center items-center h-screen w-screen col">
+      <h1 className="base-text">🛠️ under development | check out v1 👇</h1>
       <br />
-      <div style={styles.row}>
+      <div className="row">
         <h1
+          className="cursor-pointer underline text-4xl font-extrabold"
           onClick={() => {
             window.open("https://narayann.dev", "_self");
-          }}
-          style={{
-            cursor: "pointer",
-            fontSize: "2rem",
-            fontWeight: 700,
-            textDecoration: "underline",
           }}
         >
           narayann.dev
@@ -39,14 +21,11 @@ export default function Test() {
       </div>
       <SizedBox height="20px" />
 
-      <div style={styles.row}>
+      <div className="row">
         <h2
+          className="cursor-pointer underline"
           onClick={() => {
             navigate("/test");
-          }}
-          style={{
-            cursor: "pointer",
-            textDecoration: "underline",
           }}
         >
           still want to checkout?
