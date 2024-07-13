@@ -56,7 +56,7 @@ module.exports = {
         secondary: ["Sen", "sans-serif"],
       },
       padding: {
-        root: "250px",
+        root: "12vw",
       },
       borderRadius: {
         lg: "var(--radius)",

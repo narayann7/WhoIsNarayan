@@ -1,5 +1,6 @@
 import { AppProps } from "@/models/app_props_model";
 import { createContext, useContext, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import {
   ContextApiModel,
   PaletteModel,
@@ -10,10 +11,11 @@ export const RootContext = createContext(null as any);
 
 const RootProvider = (props: AppProps) => {
   const [isPaletteOpen, setOpenPalette] = useState<boolean>(false);
+
   const size: ResponsiveModel = {
-    mobile: true,
-    tablet: true,
-    desktop: true,
+    mobile: useMediaQuery({ query: "(max-width: 640px)" }),
+    tablet: useMediaQuery({ query: "(max-width: 768px)" }),
+    desktop: useMediaQuery({ query: "(min-width: 1024px)" }),
   };
   const palette: PaletteModel = {
     isOpen: isPaletteOpen,

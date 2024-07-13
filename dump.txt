@@ -6,3 +6,14 @@
       >
         <BackgroundAnimation />
       </div> */}
+
+
+          {/* <SizedBox width={"40px"} />
+      <img
+        className="cursor-pointer w-[20px] h-[20px]"
+        onClick={() => {
+          nav("/");
+        }}
+        src={baseAssets.icons.lpIcon}
+        alt="Your SVG"
+      /> */}

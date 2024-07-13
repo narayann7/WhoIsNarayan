@@ -13,7 +13,7 @@ export default function LinkTooltip({
   onChanges,
 }: LinkTooltipProps) {
   return (
-    <TooltipProvider delayDuration={0} key={"op"}>
+    <TooltipProvider delayDuration={0}>
       <Tooltip open={open ? open : undefined} onOpenChange={onChanges}>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipContent side="bottom">

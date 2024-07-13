@@ -30,7 +30,7 @@ export default function Home() {
             }}
           >
             <div className="base-text text-[14px] tracking-[1px]">
-              {"Resume"}
+              <a href="resume"> {"Resume"}</a>
             </div>
 
             <SizedBox width="5px" />

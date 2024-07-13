@@ -23,7 +23,6 @@ export default function About() {
         <SizedBox height="25vh" />
         <Profile />
         <SizedBox height="40px" />
-
         <div className="text-des pl-[10px] text-justify">
           {userData.descriptions.aboutMe[0]}
         </div>

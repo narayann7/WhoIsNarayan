@@ -1,13 +1,12 @@
 import { MdKeyboardCommandKey } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import baseAssets from "../assets/base_assets";
 import { useRootContext } from "../services/context_provider";
 import SizedBox from "./commons/SizedBox";
 
 export default function Footer() {
   const nav = useNavigate();
   const { palette } = useRootContext();
-  const paths = ["about", "work", "connect"];
+  const paths = ["root", "about", "work", "connect"];
 
   const pathItems = paths.map((path) => {
     return (
@@ -15,7 +14,8 @@ export default function Footer() {
         <div
           className="hover-underline-animation base-text text-[14px] tracking-[2px] cursor-pointer pb-[5px]"
           onClick={() => {
-            nav("/" + path);
+            if (path === "root") nav("/");
+            else nav("/" + path);
           }}
         >
           {path}
@@ -43,15 +43,6 @@ export default function Footer() {
           + k
         </div>
       </div>
-      <SizedBox width={"40px"} />
-      <img
-        className="cursor-pointer w-[20px] h-[20px]"
-        onClick={() => {
-          nav("/");
-        }}
-        src={baseAssets.icons.lpIcon}
-        alt="Your SVG"
-      />
     </div>
   );
 }

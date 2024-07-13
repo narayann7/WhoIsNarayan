@@ -7,9 +7,9 @@ const userData = {
   email: "laxminarayanreddy432@gmail.com",
   phone: "8249903317",
   iAM: [
-    "I'm a Software Developer ",
-    "I'm a Tinkerer ",
-    "I'm a Learner for life ",
+    "I'm a Software Developer. ",
+    "I'm a Tinkerer. ",
+    "I'm a Learner for life. ",
   ],
 
   descriptions: {
