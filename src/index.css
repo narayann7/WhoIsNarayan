@@ -94,7 +94,7 @@
 }
 
 :root {
-  --backgroundColor: #010613;
+  --backgroundColor: #000000;
   --secondaryBackgroundColor: #1a1e2c;
   --primaryColor: #f5aa3a;
   --primaryFontFamily: "Poppins";
@@ -104,7 +104,6 @@
 * {
   margin: 0;
   padding: 0;
-
   outline: 0;
   color: #fff;
   box-sizing: border-box;
@@ -114,8 +113,8 @@
   scrollbar-width: thin;
 }
 ::-webkit-scrollbar {
-  width: 0px; /* Remove scrollbar space */
-  background: none; /* Optional: just make scrollbar invisible */
+  width: 0px;
+  background: none;
 }
 body {
   background-color: var(--backgroundColor);

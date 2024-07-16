@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import CommandPalette, { filterItems, getItemIndex } from "react-cmdk";
+
 import "react-cmdk/dist/cmdk.css";
 import { BiHomeSmile } from "react-icons/bi";
 
 import { MdWorkOutline } from "react-icons/md";
 import { TbUserHeart } from "react-icons/tb";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import CommandPalette, { filterItems, getItemIndex } from "react-cmdk";
 import { useRootContext } from "../services/context_provider";
 
 const Palette = () => {
@@ -107,9 +109,9 @@ const Palette = () => {
           )}
         </CommandPalette.Page>
 
-        <CommandPalette.Page id="projects">
+        {/* <CommandPalette.Page id="projects">
           <div></div>
-        </CommandPalette.Page>
+        </CommandPalette.Page> */}
       </CommandPalette>
     </div>
   );

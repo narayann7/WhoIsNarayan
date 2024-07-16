@@ -1,5 +1,4 @@
 import MyTypeAnimation from "@/components/MyTypeAnimation";
-import { HiExternalLink } from "react-icons/hi";
 import Socials from "../components/Socials";
 import SizedBox from "../components/commons/SizedBox";
 import userData from "../data/user_data";
@@ -23,7 +22,7 @@ export default function Home() {
         <SizedBox height="20px" />
 
         <div className="flex flex-row items-center pl-[5px]">
-          <div
+          {/* <div
             className="h-[42px] w-[120px]  base-center bg-secondaryBackground rounded-md cursor-pointer transition-all duration-300 ease-in-out border-none hover:duration-500 hover:bg-background hover:border-solid hover:border-2 hover:border-secondaryBackground border-secondaryBackground"
             onClick={() => {
               window.open(userData.links.resume, "_blank");
@@ -36,12 +35,13 @@ export default function Home() {
             <SizedBox width="5px" />
 
             <HiExternalLink size={"14px"} color={"white"} />
-          </div>
-
-          <SizedBox width="25px" />
-
+          </div> */}
           <Socials />
+          <SizedBox width="25px" />
+          <div className="base-text text-xl">lets get started </div>
         </div>
+        <SizedBox height="25px" />
+        {/* <div className="base-test">lets get started </div> */}
       </div>
     </div>
   );
