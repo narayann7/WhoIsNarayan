@@ -1,4 +1,0 @@
-- svg animation
-- selected index for footer
-- on profile click on nymble nav to work
-- open resume in /resume and use embed tag for google drive
