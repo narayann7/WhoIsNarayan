@@ -1,35 +1,38 @@
-interface NOptions {
+interface OscillatorOptions {
   phase?: number;
   offset?: number;
   frequency?: number;
   amplitude?: number;
 }
 
-class N {
+class Oscillator {
   private phase: number;
   private offset: number;
   private frequency: number;
   private amplitude: number;
 
-  constructor(options: NOptions = {}) {
+  // Constructor to initialize the Oscillator with optional parameters
+  constructor(options: OscillatorOptions = {}) {
     this.phase = options.phase || 0;
     this.offset = options.offset || 0;
     this.frequency = options.frequency || 0.001;
     this.amplitude = options.amplitude || 1;
   }
 
+  // Updates the phase and calculates the new value using the sine function
   update(): number {
     this.phase += this.frequency;
     return this.offset + Math.sin(this.phase) * this.amplitude;
   }
 
+  // Returns the current value based on the sine function
   value(): number {
     return this.offset + Math.sin(this.phase) * this.amplitude;
   }
 }
 
 interface LineOptions {
-  spring: number;
+  springConstant: number;
 }
 
 class Node {
@@ -40,46 +43,47 @@ class Node {
 }
 
 class Line {
-  private spring: number;
-  private friction: number;
+  private springConstant: number;
+  private frictionCoefficient: number;
   nodes: Node[];
 
+  // Constructor to initialize the Line with nodes and spring properties
   constructor(options: LineOptions) {
-    this.spring = options.spring + 0.1 * Math.random() - 0.05;
-    this.friction = E.friction + 0.01 * Math.random() - 0.005;
+    this.springConstant = options.springConstant + 0.1 * Math.random() - 0.05;
+    this.frictionCoefficient = Settings.friction + 0.01 * Math.random() - 0.005;
     this.nodes = [];
-    for (let i = 0; i < E.size; i++) {
+    for (let i = 0; i < Settings.nodeCount; i++) {
       const node = new Node();
-      node.x = pos.x;
-      node.y = pos.y;
+      node.x = position.x;
+      node.y = position.y;
       this.nodes.push(node);
     }
   }
 
-
-
+  // Updates the positions and velocities of the nodes based on spring dynamics
   update(): void {
-    let spring = this.spring;
+    let spring = this.springConstant;
     let node = this.nodes[0];
-    node.vx += (pos.x - node.x) * spring;
-    node.vy += (pos.y - node.y) * spring;
+    node.vx += (position.x - node.x) * spring;
+    node.vy += (position.y - node.y) * spring;
     for (let i = 0, len = this.nodes.length; i < len; i++) {
       node = this.nodes[i];
       if (i > 0) {
-        const prev = this.nodes[i - 1];
-        node.vx += (prev.x - node.x) * spring;
-        node.vy += (prev.y - node.y) * spring;
-        node.vx += prev.vx * E.dampening;
-        node.vy += prev.vy * E.dampening;
+        const previousNode = this.nodes[i - 1];
+        node.vx += (previousNode.x - node.x) * spring;
+        node.vy += (previousNode.y - node.y) * spring;
+        node.vx += previousNode.vx * Settings.damping;
+        node.vy += previousNode.vy * Settings.damping;
       }
-      node.vx *= this.friction;
-      node.vy *= this.friction;
+      node.vx *= this.frictionCoefficient;
+      node.vy *= this.frictionCoefficient;
       node.x += node.vx;
       node.y += node.vy;
-      spring *= E.tension;
+      spring *= Settings.tension;
     }
   }
 
+  // Draws the line connecting the nodes with quadratic curves
   draw(): void {
     let x = this.nodes[0].x,
       y = this.nodes[0].y;
@@ -100,34 +104,37 @@ class Line {
   }
 }
 
-function onMousemove(e: MouseEvent | TouchEvent): void {
+function onMouseMove(e: MouseEvent | TouchEvent): void {
+  // Creates lines based on the current settings
   function createLines(): void {
     lines = [];
-    for (let i = 0; i < E.trails; i++) {
-      lines.push(new Line({ spring: 0.45 + (i / E.trails) * 0.025 }));
+    for (let i = 0; i < Settings.trailCount; i++) {
+      lines.push(new Line({ springConstant: 0.45 + (i / Settings.trailCount) * 0.025 }));
     }
   }
 
+  // Handles mouse or touch movement, updating the position
   function handleMove(e: MouseEvent | TouchEvent): void {
     if ('touches' in e) {
-      pos.x = e.touches[0].pageX;
-      pos.y = e.touches[0].pageY;
+      position.x = e.touches[0].pageX;
+      position.y = e.touches[0].pageY;
     } else {
-      pos.x = e.clientX;
-      pos.y = e.clientY;
+      position.x = e.clientX;
+      position.y = e.clientY;
     }
     e.preventDefault();
   }
 
+  // Handles touch start event
   function handleTouchStart(e: TouchEvent): void {
     if (e.touches.length === 1) {
-      pos.x = e.touches[0].pageX;
-      pos.y = e.touches[0].pageY;
+      position.x = e.touches[0].pageX;
+      position.y = e.touches[0].pageY;
     }
   }
 
-  document.removeEventListener('mousemove', onMousemove);
-  document.removeEventListener('touchstart', onMousemove);
+  document.removeEventListener('mousemove', onMouseMove);
+  document.removeEventListener('touchstart', onMouseMove);
   document.addEventListener('mousemove', handleMove);
   document.addEventListener('touchmove', handleMove);
   document.addEventListener('touchstart', handleTouchStart);
@@ -136,14 +143,23 @@ function onMousemove(e: MouseEvent | TouchEvent): void {
   render();
 }
 
+function getRadomColors(value: number): string {
+  //187 - cyan 144 - green 
+  const colorNumbers: string[] = ["185", "186", "187", "188", "144", "145",]
+  return `hsla(${colorNumbers[Math.round(value) % colorNumbers.length]},90%,50%,0.25)`;
+}
+
+
 function render(): void {
   if (ctx.running) {
+    // Clears the canvas and redraws the lines with updated positions
     ctx.globalCompositeOperation = 'source-over';
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.globalCompositeOperation = 'lighter';
-    ctx.strokeStyle = `hsla(${Math.round(f.update())},90%,50%,0.25)`;
+
+    ctx.strokeStyle = getRadomColors(oscillator.update());
     ctx.lineWidth = 1;
-    for (let i = 0; i < E.trails; i++) {
+    for (let i = 0; i < Settings.trailCount; i++) {
       const line = lines[i];
       line.update();
       line.draw();
@@ -153,37 +169,39 @@ function render(): void {
   }
 }
 
+// Resizes the canvas to fit the window dimensions
 function resizeCanvas(): void {
   ctx.canvas.width = window.innerWidth;
   ctx.canvas.height = window.innerHeight;
 }
 
 let ctx: CanvasRenderingContext2D & { running: boolean; frame: number };
-let f: N;
-let pos: { x: number; y: number } = { x: 0, y: 0 };
+let oscillator: Oscillator;
+let position: { x: number; y: number } = { x: 0, y: 0 };
 let lines: Line[] = [];
-const E = {
+const Settings = {
   debug: true,
   friction: 0.5,
-  trails: 20,
-  size: 50,
-  dampening: 0.25,
-  tension: 0.98,
+  trailCount: 20,
+  nodeCount: 50,
+  damping: 0.20,
+  tension: 0.978,
 };
 
+// Initializes the canvas and starts the animation
 export const renderCanvas = function (): void {
   const canvas = document.getElementById('pointer_canvas') as HTMLCanvasElement;
   ctx = canvas.getContext('2d') as CanvasRenderingContext2D & { running: boolean; frame: number };
   ctx.running = true;
   ctx.frame = 1;
-  f = new N({
+  oscillator = new Oscillator({
     phase: Math.random() * 2 * Math.PI,
     amplitude: 85,
     frequency: 0.0015,
     offset: 285,
   });
-  document.addEventListener('mousemove', onMousemove);
-  document.addEventListener('touchstart', onMousemove);
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('touchstart', onMouseMove);
   document.body.addEventListener('orientationchange', resizeCanvas);
   window.addEventListener('resize', resizeCanvas);
   window.addEventListener('focus', () => {

@@ -91,6 +91,38 @@
   .col {
     @apply flex flex-col;
   }
+  /* gradient colors for texts */
+  .text-amber-red {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-red-300 to-75%;
+  }
+
+  .text-amber-orange {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-amber-300 from-5% to-orange-400 to-70%;
+  }
+
+  .text-lime-yellow {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-lime-400 from-5% to-yellow-300 to-70%;
+  }
+
+  .text-cyan-green {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-green-300 to-75%;
+  }
+
+  .text-blue-cyan {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-400 from-5% to-cyan-300 to-70%;
+  }
+
+  .text-violet-blue {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-300 to-75%;
+  }
+
+  .text-pink-violet {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-pink-400 from-5% to-violet-400;
+  }
+
+  .text-purple-indigo {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-400 from-5% to-indigo-400 to-70%;
+  }
 }
 
 :root {
