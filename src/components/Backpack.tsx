@@ -9,7 +9,7 @@ import SizedBox from "./commons/SizedBox";
 export default function Backpack() {
   return (
     <div className="max-size flex col justify-center px-root">
-      <div className="base-text text-[24px] tracking-[1px] leading-[1.5px] font-semibold">
+      <div className="base-text  text-transparent font-semibold bg-clip-text bg-gradient-to-r from-amber-300 from-5% to-orange-400 to-70%   text-5xl">
         My Backpack
       </div>
       <SizedBox height={"20px"} />

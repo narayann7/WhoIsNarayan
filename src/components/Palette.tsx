@@ -7,6 +7,7 @@ import { MdWorkOutline } from "react-icons/md";
 import { TbUserHeart } from "react-icons/tb";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { isMac } from "@/services/common_services";
 import CommandPalette, { filterItems, getItemIndex } from "react-cmdk";
 import { useRootContext } from "../services/context_provider";
 
@@ -19,11 +20,19 @@ const Palette = () => {
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
-      if (e.metaKey && e.key === "k") {
-        e.preventDefault();
-        e.stopPropagation();
-        palette.toggle();
-      }
+      if (isMac()) {
+        if (e.metaKey && e.key === "k") {
+          e.preventDefault();
+          e.stopPropagation();
+          palette.toggle();
+        }
+      } else {
+        // windows + k
+        if (e.ctrlKey && e.key === "k") {
+          e.preventDefault();
+          e.stopPropagation();
+          palette.toggle();
+        }
     }
 
     document.addEventListener("keydown", handleKeyDown);
