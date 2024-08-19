@@ -10,6 +10,7 @@ function App() {
     <Routes>
       {/* <Route path="/" element={<Test />}></Route> */}
 
+      {/* <Route path="/" element={<AppWrapper component={<Dummy />} />} /> */}
       <Route path="/" element={<AppWrapper component={<Home />} />} />
       <Route path="about" element={<AppWrapper component={<About />} />} />
       <Route path="work" element={<AppWrapper component={<Work />} />} />
