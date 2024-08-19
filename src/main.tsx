@@ -10,18 +10,16 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <body>
-    <BrowserRouter>
-      <RootProvider
-        childrenElement={
-          <>
-            <Routes>
-              <Route path="/*" element={<App />} />
-            </Routes>
-            <Palette />
-          </>
-        }
-      ></RootProvider>
-    </BrowserRouter>
-  </body>
+  <BrowserRouter>
+    <RootProvider
+      childrenElement={
+        <>
+          <Routes>
+            <Route path="/*" element={<App />} />
+          </Routes>
+          <Palette />
+        </>
+      }
+    ></RootProvider>
+  </BrowserRouter>
 );

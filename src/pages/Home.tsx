@@ -1,9 +1,14 @@
 import MyTypeAnimation from "@/components/MyTypeAnimation";
+import { renderCanvas } from "@/services/renderCanvas";
+import { useEffect } from "react";
 import Socials from "../components/Socials";
 import SizedBox from "../components/commons/SizedBox";
 import userData from "../data/user_data";
 
 export default function Home() {
+  useEffect(() => {
+    renderCanvas();
+  }, []);
   return (
     <div className="max-size flex flex-row justify-between items-center px-root">
       <div>
@@ -43,6 +48,10 @@ export default function Home() {
         <SizedBox height="25px" />
         {/* <div className="base-test">lets get started </div> */}
       </div>
+      <canvas
+        className="pointer-events-none absolute inset-0 z-[-1]"
+        id="pointer_canvas"
+      ></canvas>
     </div>
   );
 }
