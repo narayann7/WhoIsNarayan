@@ -3,8 +3,8 @@ import { FaLinkedin } from "react-icons/fa";
 import { IoLogoStackoverflow } from "react-icons/io5";
 import { SiMaildotru } from "react-icons/si";
 import { VscGithubInverted } from "react-icons/vsc";
+import { useRootContext } from "../context_api/root_context";
 import userData from "../data/user_data";
-import { useRootContext } from "../services/context_provider";
 import LinkTooltip from "./commons/LinkTooltip";
 
 export default function Socials() {

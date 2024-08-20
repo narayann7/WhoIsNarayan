@@ -1,5 +1,6 @@
 import { AppProps } from "@/models/app_props_model";
-import { createContext, useContext, useState } from "react";
+import StorageService from "@/services/local_storage_services";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import {
   ContextApiModel,
@@ -11,6 +12,17 @@ export const RootContext = createContext(null as any);
 
 const RootProvider = (props: AppProps) => {
   const [isPaletteOpen, setOpenPalette] = useState<boolean>(false);
+  const [isGetStarted, setIsGetStarted] = useState<boolean>(false);
+
+  useEffect(() => {
+    const _isGetStarted = StorageService.isGetStarted();
+    setIsGetStarted(_isGetStarted);
+  }, []);
+
+  function handleGetStarted() {
+    StorageService.setGetStarted();
+    setIsGetStarted(true);
+  }
 
   const size: ResponsiveModel = {
     mobile: useMediaQuery({ query: "(max-width: 640px)" }),
@@ -24,9 +36,11 @@ const RootProvider = (props: AppProps) => {
       setOpenPalette((isOpen) => !isOpen);
     },
   };
-  const data = {
+  const data: ContextApiModel = {
     size,
     palette,
+    isGetStarted,
+    handleGetStarted,
   };
   return (
     <RootContext.Provider value={data}>
