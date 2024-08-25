@@ -16,7 +16,6 @@ export function base64Encode(str: string) {
 }
 
 //base64 decode
-
 export function base64Decode(str: string) {
   return atob(str);
 }

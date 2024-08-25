@@ -9,7 +9,6 @@ import SizedBox from "./commons/SizedBox";
 export default function Footer() {
   const nav = useNavigate();
   const { size, palette, isGetStarted, handleGetStarted } = useRootContext();
-  //current index
   const [currentIndex, setCurrentIndex] = useState(0);
   const paths = ["root", "about", "work", "connect"];
 

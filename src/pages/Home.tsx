@@ -1,3 +1,4 @@
+import AppButton from "@/components/AppButton";
 import MyTypeAnimation from "@/components/MyTypeAnimation";
 import { renderCanvas } from "@/services/render_pointer_canvas";
 import { useEffect } from "react";
@@ -28,21 +29,15 @@ export default function Home() {
         <SizedBox height="20px" />
 
         <div className="flex flex-row items-center pl-[5px]">
-          <div
-            className="h-[42px] w-[120px]  base-center bg-secondaryBackground rounded-md cursor-pointer transition-all duration-300 ease-in-out border-none hover:duration-500 hover:bg-background hover:border-solid hover:border-2 hover:border-secondaryBackground border-secondaryBackground"
+          <AppButton
+            text="Resume"
             onClick={() => {
               window.open(userData.links.resume, "_blank");
             }}
-          >
-            <div className="base-text text-[14px] tracking-[1px]">
-              <a href="resume"> {"Resume"}</a>
-            </div>
+            trailingIcon={<HiExternalLink size={"14px"} color={"white"} />}
+          ></AppButton>
 
-            <SizedBox width="5px" />
-
-            <HiExternalLink size={"14px"} color={"white"} />
-          </div>
-          <SizedBox width="25px" />
+          <SizedBox width="15px" />
 
           <Socials />
 
@@ -50,6 +45,7 @@ export default function Home() {
         </div>
         <SizedBox height="25px" />
       </div>
+
       <canvas
         className="pointer-events-none absolute inset-0 z-[-1]"
         id="pointer_canvas"
