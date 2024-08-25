@@ -2,6 +2,8 @@
 export interface ContextApiModel {
   size: ResponsiveModel;
   palette: PaletteModel;
+  isGetStarted: boolean;
+  handleGetStarted: () => void;
 }
 
 //model for responsive design

@@ -8,12 +8,12 @@ import { TbUserHeart } from "react-icons/tb";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import CommandPalette, { filterItems, getItemIndex } from "react-cmdk";
-import { useRootContext } from "../services/context_provider";
+import { useRootContext } from "../context_api/root_context";
 
 const Palette = () => {
   const [page, setPage] = useState<"root" | "projects">("root");
   const [search, setSearch] = useState("");
-  const { palette } = useRootContext();
+  const { palette, handleGetStarted } = useRootContext();
   const nav = useNavigate();
   const location = useLocation();
 
@@ -23,6 +23,7 @@ const Palette = () => {
         e.preventDefault();
         e.stopPropagation();
         palette.toggle();
+        handleGetStarted();
       }
     }
 
